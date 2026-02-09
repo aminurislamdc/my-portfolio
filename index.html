@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Anderson | Computer Science Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>James<span class="logo-highlight">Anderson</span></h1>
+                    <p class="logo-subtitle">Computer Science Graduate</p>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link active">Home</a></li>
+                        <li><a href="#education" class="nav-link">Education</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#contact" class="nav-link btn-contact">Contact</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-subtitle">Welcome to my professional portfolio</p>
+                    <h2 class="hero-title">James Anderson</h2>
+                    <h3 class="hero-role">Computer Science Graduate | Software Engineer</h3>
+                    <p class="hero-description">
+                        A recent graduate from MIT with a Master's in Computer Science, specializing in 
+                        distributed systems and machine learning. Seeking full-time opportunities in 
+                        software engineering roles.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i> View Work
+                        </a>
+                        <a href="resume.pdf" class="btn btn-secondary" target="_blank">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">2.5</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Research Papers</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-image">
+                        <!-- Replace with your photo -->
+                        <div class="placeholder-professional">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="image-badge">
+                            <span>MIT '23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education & Qualifications</h2>
+                <p class="section-subtitle">Academic background and certifications</p>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2021 - 2023</div>
+                    <div class="timeline-content">
+                        <h3>Massachusetts Institute of Technology</h3>
+                        <p class="degree">Master of Science in Computer Science</p>
+                        <p class="gpa">GPA: 3.9/4.0 | Dean's List</p>
+                        <p><strong>Thesis:</strong> "Optimizing Distributed Systems for Real-time Data Processing"</p>
+                        <p><strong>Relevant Coursework:</strong> Advanced Algorithms, Distributed Systems, Machine Learning, Computer Vision, Database Systems</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2017 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Stanford University</h3>
+                        <p class="degree">Bachelor of Science in Computer Science</p>
+                        <p class="gpa">GPA: 3.8/4.0 | Summa Cum Laude</p>
+                        <p><strong>Minor:</strong> Mathematics</p>
+                        <p><strong>Honors:</strong> Presidential Scholar, Departmental Honors</p>
+                    </div>
+                </div>
+            </div>
+            <div class="certifications">
+                <h3 class="subsection-title">Certifications</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>AWS Certified Solutions Architect</h4>
+                            <p class="cert-issuer">Amazon Web Services</p>
+                            <p class="cert-date">Issued: 2022 | Valid through: 2025</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Google Professional Data Engineer</h4>
+                            <p class="cert-issuer">Google Cloud</p>
+                            <p class="cert-date">Issued: 2023 | Valid through: 2026</p>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="cert-info">
+                            <h4>Microsoft Azure Fundamentals</h4>
+                            <p class="cert-issuer">Microsoft</p>
+                            <p class="cert-date">Issued: 2022 | Valid through: 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Industry experience and internships</p>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="company-logo">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <div class="exp-details">
+                            <h3>Software Engineering Intern</h3>
+                            <p class="company">Google LLC</p>
+                            <p class="duration">June 2022 - August 2022 | Mountain View, CA</p>
+                        </div>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li>Developed and optimized distributed data processing pipelines using Apache Beam and Google Dataflow</li>
+                            <li>Reduced query processing time by 40% through implementation of caching strategies</li>
+                            <li>Collaborated with senior engineers to design scalable microservices architecture</li>
+                            <li>Presented findings to engineering leadership team at end of internship</li>
+                        </ul>
+                        <div class="tech-used">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Google Cloud</span>
+                            <span class="tech-tag">Apache Beam</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="company-logo">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <div class="exp-details">
+                            <h3>Research Assistant</h3>
+                            <p class="company">MIT Computer Science & AI Lab</p>
+                            <p class="duration">September 2021 - May 2023 | Cambridge, MA</p>
+                        </div>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li>Conducted research on federated learning algorithms under Professor Sarah Chen</li>
+                            <li>Published 2 conference papers on privacy-preserving machine learning techniques</li>
+                            <li>Developed open-source library for distributed model training used by 500+ researchers</li>
+                            <li>Presented research at NeurIPS 2022 conference</li>
+                        </ul>
+                        <div class="tech-used">
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="company-logo">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="exp-details">
+                            <h3>Software Developer Intern</h3>
+                            <p class="company">Goldman Sachs</p>
+                            <p class="duration">May 2021 - August 2021 | New York, NY</p>
+                        </div>
+                    </div>
+                    <div class="exp-content">
+                        <ul>
+                            <li>Developed risk analysis tools for the investment banking division</li>
+                            <li>Implemented real-time data visualization dashboard using React and D3.js</li>
+                            <li>Automated reporting processes, saving 15+ hours weekly for analysts</li>
+                            <li>Received return offer for full-time position</li>
+                        </ul>
+                        <div class="tech-used">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Projects</h2>
+                <p class="section-subtitle">Selected academic and personal projects</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Distributed Task Scheduler</h3>
+                        <p class="project-category">Distributed Systems | Backend</p>
+                        <p class="project-description">
+                            A fault-tolerant distributed task scheduling system built with Go and gRPC. 
+                            Implements leader election, consistent hashing, and automatic failover.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check-circle"></i> Horizontal scaling to 100+ nodes</span>
+                            <span><i class="fas fa-check-circle"></i> 99.9% uptime guarantee</span>
+                            <span><i class="fas fa-check-circle"></i> Real-time monitoring dashboard</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <span>Go</span>
+                                <span>gRPC</span>
+                                <span>Redis</span>
+                                <span>Kubernetes</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#"><i class="fas fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Medical Image Analysis AI</h3>
+                        <p class="project-category">Machine Learning | Healthcare</p>
+                        <p class="project-description">
+                            Deep learning model for early detection of anomalies in medical imaging. 
+                            Achieved 94% accuracy on NIH Chest X-ray dataset.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check-circle"></i> Transfer learning with ResNet-50</span>
+                            <span><i class="fas fa-check-circle"></i> Automated preprocessing pipeline</span>
+                            <span><i class="fas fa-check-circle"></i> HIPAA-compliant data handling</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>PyTorch</span>
+                                <span>OpenCV</span>
+                                <span>FastAPI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#"><i class="fas fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Zero-Knowledge Authentication System</h3>
+                        <p class="project-category">Security | Cryptography</p>
+                        <p class="project-description">
+                            Implementation of zero-knowledge proof protocol for password authentication 
+                            without transmitting actual credentials.
+                        </p>
+                        <div class="project-features">
+                            <span><i class="fas fa-check-circle"></i> Schnorr identification protocol</span>
+                            <span><i class="fas fa-check-circle"></i> MITM attack protection</span>
+                            <span><i class="fas fa-check-circle"></i> Cross-platform compatibility</span>
+                        </div>
+                        <div class="project-footer">
+                            <div class="project-tech">
+                                <span>Node.js</span>
+                                <span>TypeScript</span>
+                                <span>WebAssembly</span>
+                                <span>PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="#"><i class="fas fa-file-pdf"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="projects.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-right"></i> View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Proficiency across technology stacks</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-levels">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Go</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skills-grid">
+                        <div class="skill-tile">
+                            <div class="tile-icon">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <span class="tile-label">AWS</span>
+                            <span class="tile-level">Advanced</span>
+                        </div>
+                        <div class="skill-tile">
+                            <div class="tile-icon">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <span class="tile-label">Docker</span>
+                            <span class="tile-level">Advanced</span>
+                        </div>
+                        <div class="skill-tile">
+                            <div class="tile-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <span class="tile-label">Kubernetes</span>
+                            <span class="tile-level">Intermediate</span>
+                        </div>
+                        <div class="skill-tile">
+                            <div class="tile-icon">
+                                <i class="fab fa-git-alt"></i>
+                            </div>
+                            <span class="tile-label">Git</span>
+                            <span class="tile-level">Expert</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag expert">PostgreSQL</div>
+                        <div class="skill-tag advanced">MongoDB</div>
+                        <div class="skill-tag advanced">Redis</div>
+                        <div class="skill-tag intermediate">Cassandra</div>
+                        <div class="skill-tag intermediate">Neo4j</div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-cogs"></i> Frameworks & Tools</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag advanced">React</div>
+                        <div class="skill-tag advanced">Spring Boot</div>
+                        <div class="skill-tag intermediate">TensorFlow</div>
+                        <div class="skill-tag advanced">PyTorch</div>
+                        <div class="skill-tag expert">Linux</div>
+                        <div class="skill-tag advanced">Jenkins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Publications & Research</h2>
+                <p class="section-subtitle">Academic contributions and papers</p>
+            </div>
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-conference">NeurIPS 2022</span>
+                        <span class="pub-date">December 2022</span>
+                    </div>
+                    <h3 class="pub-title">"Privacy-Preserving Federated Learning with Differential Privacy Guarantees"</h3>
+                    <p class="pub-authors">Anderson, J., Chen, S., Rodriguez, M.</p>
+                    <a href="#" class="pub-link">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-conference">ICML 2022</span>
+                        <span class="pub-date">July 2022</span>
+                    </div>
+                    <h3 class="pub-title">"Optimizing Distributed Training with Gradient Compression"</h3>
+                    <p class="pub-authors">Chen, S., Anderson, J., Wilson, K.</p>
+                    <a href="#" class="pub-link">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+                <div class="publication-item">
+                    <div class="pub-meta">
+                        <span class="pub-conference">arXiv</span>
+                        <span class="pub-date">March 2023</span>
+                    </div>
+                    <h3 class="pub-title">"Survey of Modern Distributed Systems Architectures"</h3>
+                    <p class="pub-authors">Anderson, J.</p>
+                    <a href="#" class="pub-link">
+                        <i class="fas fa-external-link-alt"></i> View Paper
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Information</h2>
+                <p class="section-subtitle">Available for opportunities and collaborations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Address</h4>
+                            <a href="mailto:james.anderson@alumni.mit.edu">james.anderson@alumni.mit.edu</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone Number</h4>
+                            <a href="tel:+16175551234">+1 (617) 555-1234</a>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Boston, MA | Open to relocation</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Professional Links</h4>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>James Anderson</h3>
+                    <p>Software Engineer & Computer Science Graduate</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>Boston, Massachusetts</p>
+                    <p>james.anderson@alumni.mit.edu</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 James Anderson. All rights reserved.</p>
+                <p class="footer-credits">Designed for professional presentation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
