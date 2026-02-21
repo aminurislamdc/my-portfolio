@@ -178,15 +178,75 @@ document.querySelectorAll('.btn-fill,.btn-outline,.btn-sub,.socbtn').forEach(btn
   });
 });
 
+// new code
+
 /* ===================== CONTACT FORM ===================== */
-document.getElementById('submitBtn').addEventListener('click',()=>{
-  const name=document.getElementById('cf-name').value.trim();
-  const email=document.getElementById('cf-email').value.trim();
-  const msg=document.getElementById('cf-msg').value.trim();
-  if(!name||!email||!msg){showNotif('Please fill in all required fields.');return;}
-  showNotif(`Thanks ${name}! I'll reply to ${email} soon.`);
-  ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
+// 1. Initialize EmailJS with your key
+emailjs.init("JSryuqFHKlcf_AlnF");
+
+document.getElementById('submitBtn').addEventListener('click',(e)=>{
+  e.preventDefault(); // Prevent page refresh
+
+  // Grab values and trim whitespace
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const subject=document.getElementById('cf-subj').value.trim();
+  const msg=document.getElementById('cf-msg').value.trim();
+
+  // Keep your excellent validation check
+  if(!name||!email||!msg){
+    showNotif('Please fill in all required fields.');
+    return;
+  }
+
+  // Update button text to show it's processing
+  const btn = document.getElementById('submitBtn');
+  const originalBtnHTML = btn.innerHTML; // Saves the SVG icon and text
+  btn.innerHTML = "Sending...";
+
+  // Prepare data for EmailJS
+  const params = {
+    name: name,
+    email: email,
+    subject: subject,
+    message: msg
+  };
+
+  // Send the email
+  emailjs.send("service_322372h", "template_g0jwizf", params)
+    .then(() => {
+      // Trigger your beautiful custom notification on success
+      showNotif(`Thanks ${name}! Your message was sent successfully.`);
+      
+      // Reset button and form fields
+      btn.innerHTML = originalBtnHTML; 
+      ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
+    })
+    .catch((err) => {
+      // Trigger custom notification on error
+      showNotif("Failed to send message. Please try again.");
+      btn.innerHTML = originalBtnHTML;
+      console.error("EmailJS Error:", err);
+    });
 });
+
+// Your existing notification function (do not change this)
+function showNotif(txt){
+  const n=document.getElementById('notif');
+  document.getElementById('notif-msg').textContent=txt;
+  n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),4500);
+}
+
+// /* ===================== CONTACT FORM ===================== */
+// document.getElementById('submitBtn').addEventListener('click',()=>{
+//   const name=document.getElementById('cf-name').value.trim();
+//   const email=document.getElementById('cf-email').value.trim();
+//   const msg=document.getElementById('cf-msg').value.trim();
+//   if(!name||!email||!msg){showNotif('Please fill in all required fields.');return;}
+//   showNotif(`Thanks ${name}! I'll reply to ${email} soon.`);
+//   ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
+// });
 function showNotif(txt){
   const n=document.getElementById('notif');
   document.getElementById('notif-msg').textContent=txt;
