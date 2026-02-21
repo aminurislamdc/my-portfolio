@@ -1,4 +1,3 @@
-
 /* ===================== LOADER ===================== */
 window.addEventListener('load',()=>{
   setTimeout(()=>{
@@ -178,78 +177,107 @@ document.querySelectorAll('.btn-fill,.btn-outline,.btn-sub,.socbtn').forEach(btn
   });
 });
 
-// new code
+/* ===================== EMAILJS CONTACT FORM =====================
+   HOW TO SETUP (3 easy steps):
+   1. Go to https://www.emailjs.com → Sign up FREE
+   2. Add Email Service → connect your Gmail → copy SERVICE_ID
+   3. Create Email Template → copy TEMPLATE_ID → copy PUBLIC_KEY
+   Then replace the 3 values below ↓
+================================================================ */
 
-/* ===================== CONTACT FORM ===================== */
-// 1. Initialize EmailJS with your key
-emailjs.init("JSryuqFHKlcf_AlnF");
+const EJS = {
+  SERVICE_ID:  'service_322372h',
+  TEMPLATE_ID: 'template_g0jwizf',
+  PUBLIC_KEY:  'jSryuqFHKlcf_AInF',
+};
 
-document.getElementById('submitBtn').addEventListener('click',(e)=>{
-  e.preventDefault(); // Prevent page refresh
+// Load EmailJS SDK dynamically
+(function(){
+  const s=document.createElement('script');
+  s.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  s.onload=()=>{ emailjs.init({publicKey: EJS.PUBLIC_KEY}); };
+  document.head.appendChild(s);
+})();
 
-  // Grab values and trim whitespace
-  const name=document.getElementById('cf-name').value.trim();
-  const email=document.getElementById('cf-email').value.trim();
-  const subject=document.getElementById('cf-subj').value.trim();
-  const msg=document.getElementById('cf-msg').value.trim();
+const submitBtn = document.getElementById('submitBtn');
+const SEND_ICON = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
+const SPIN_ICON = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>`;
+const OK_ICON   = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+const ERR_ICON  = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>`;
 
-  // Keep your excellent validation check
-  if(!name||!email||!msg){
-    showNotif('Please fill in all required fields.');
+// inject spinner keyframe
+const ks=document.createElement('style');
+ks.textContent='@keyframes spin{to{transform:rotate(360deg)}}';
+document.head.appendChild(ks);
+
+function setBtnState(state,label){
+  const icons={loading:SPIN_ICON, success:OK_ICON, error:ERR_ICON, idle:SEND_ICON};
+  const colors={loading:'var(--blue)', success:'#16a34a', error:'#dc2626', idle:'var(--blue)'};
+  submitBtn.disabled = state==='loading';
+  submitBtn.style.background = colors[state];
+  submitBtn.style.cursor = state==='loading'?'not-allowed':'none';
+  submitBtn.innerHTML = `${icons[state]} ${label}`;
+}
+
+submitBtn.addEventListener('click', async ()=>{
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subj').value.trim();
+  const message = document.getElementById('cf-msg').value.trim();
+
+  /* --- Validation --- */
+  if(!name)  { shakeField('cf-name');  showNotif('⚠️ Please enter your name.','warn');   return; }
+  if(!email) { shakeField('cf-email'); showNotif('⚠️ Please enter your email.','warn');  return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ shakeField('cf-email'); showNotif('⚠️ Invalid email address.','warn'); return; }
+  if(!message){ shakeField('cf-msg'); showNotif('⚠️ Please write a message.','warn');    return; }
+
+  /* --- Check if keys are configured --- */
+  if(EJS.SERVICE_ID==='YOUR_SERVICE_ID'){
+    showNotif('⚙️ EmailJS not configured yet — see setup guide below!','warn');
     return;
   }
 
-  // Update button text to show it's processing
-  const btn = document.getElementById('submitBtn');
-  const originalBtnHTML = btn.innerHTML; // Saves the SVG icon and text
-  btn.innerHTML = "Sending...";
+  /* --- Send --- */
+  setBtnState('loading','Sending...');
 
-  // Prepare data for EmailJS
-  const params = {
-    name: name,
-    email: email,
-    subject: subject,
-    message: msg
+  const templateParams = {
+    from_name:    name,
+    from_email:   email,
+    subject:      subject || 'Portfolio Contact',
+    message:      message,
+    to_email:     'aminurislamdc@gmail.com',
+    reply_to:     email,
   };
 
-  // Send the email
-  emailjs.send("service_322372h", "template_g0jwizf", params)
-    .then(() => {
-      // Trigger your beautiful custom notification on success
-      showNotif(`Thanks ${name}! Your message was sent successfully.`);
-      
-      // Reset button and form fields
-      btn.innerHTML = originalBtnHTML; 
-      ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
-    })
-    .catch((err) => {
-      // Trigger custom notification on error
-      showNotif("Failed to send message. Please try again.");
-      btn.innerHTML = originalBtnHTML;
-      console.error("EmailJS Error:", err);
-    });
+  try {
+    await emailjs.send(EJS.SERVICE_ID, EJS.TEMPLATE_ID, templateParams);
+    setBtnState('success','Message Sent!');
+    showNotif(`✅ Thanks ${name}! I'll reply to ${email} soon.`,'success');
+    ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{ document.getElementById(id).value=''; });
+    setTimeout(()=>setBtnState('idle','Send Message'), 3500);
+  } catch(err) {
+    console.error('EmailJS error:',err);
+    setBtnState('error','Failed — Try Again');
+    showNotif('❌ Could not send. Please email me directly.','error');
+    setTimeout(()=>setBtnState('idle','Send Message'), 3500);
+  }
 });
 
-// Your existing notification function (do not change this)
-function showNotif(txt){
-  const n=document.getElementById('notif');
-  document.getElementById('notif-msg').textContent=txt;
-  n.classList.add('show');
-  setTimeout(()=>n.classList.remove('show'),4500);
+function shakeField(id){
+  const el=document.getElementById(id);
+  el.style.borderColor='#dc2626';
+  el.style.animation='shakeField .4s ease';
+  const ks2=document.createElement('style');
+  ks2.textContent='@keyframes shakeField{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}';
+  document.head.appendChild(ks2);
+  setTimeout(()=>{ el.style.borderColor=''; el.style.animation=''; },1500);
 }
 
-// /* ===================== CONTACT FORM ===================== */
-// document.getElementById('submitBtn').addEventListener('click',()=>{
-//   const name=document.getElementById('cf-name').value.trim();
-//   const email=document.getElementById('cf-email').value.trim();
-//   const msg=document.getElementById('cf-msg').value.trim();
-//   if(!name||!email||!msg){showNotif('Please fill in all required fields.');return;}
-//   showNotif(`Thanks ${name}! I'll reply to ${email} soon.`);
-//   ['cf-name','cf-email','cf-subj','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
-// });
-function showNotif(txt){
+function showNotif(txt, type='success'){
   const n=document.getElementById('notif');
+  const colors={success:'rgba(22,163,74,.3)', warn:'rgba(217,119,6,.3)', error:'rgba(220,38,38,.3)'};
+  n.style.borderColor=colors[type]||colors.success;
   document.getElementById('notif-msg').textContent=txt;
   n.classList.add('show');
-  setTimeout(()=>n.classList.remove('show'),4500);
+  setTimeout(()=>n.classList.remove('show'),5000);
 }
